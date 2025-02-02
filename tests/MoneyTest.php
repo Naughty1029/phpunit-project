@@ -10,16 +10,13 @@ class MoneyTest extends TestCase
         $wallet = new Dollar(5);
     
         // Act & Assert - ケース1
-        $product = $wallet->times(3);
-        $this->assertEquals(15, $product->amount);
+        $this->assertEquals(new Dollar(15), $wallet->times(3));
     
         // Act & Assert - ケース2
-        $product = $wallet->times(4);
-        $this->assertEquals(20, $product->amount);
+        $this->assertEquals(new Dollar(20), $wallet->times(4));
     
-        // ここで重要！
-        // $wallet->amount は元の 5 のままか、という確認も本来はしたいところ
-        // $this->assertEquals(5, $wallet->amount); // → イミュータブル実装ならここもOKになる
+        // イミュータブル性の確認
+        $this->assertEquals(5, $wallet->getAmount());
     }
 
     public function testEquality()

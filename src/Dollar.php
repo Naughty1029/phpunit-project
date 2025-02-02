@@ -3,7 +3,7 @@ namespace App;
 
 class Dollar
 {
-  public $amount;
+  private $amount;
   
   /**
    * @param int $amount
@@ -11,6 +11,14 @@ class Dollar
   public function __construct(int $amount)
   {
     $this->amount = $amount;
+  }
+
+  /**
+   * @return int
+   */
+  public function getAmount()
+  {
+    return $this->amount;
   }
 
   /**
