@@ -1,6 +1,7 @@
 <?php
 use PHPUnit\Framework\TestCase;
 use App\Dollar;
+use App\Franc;
 
 class MoneyTest extends TestCase
 {
@@ -29,5 +30,20 @@ class MoneyTest extends TestCase
         // Act & Assert
         $this->assertTrue($wallet1->equals($wallet2));
         $this->assertFalse($wallet1->equals($wallet3));
+    }
+
+    public function testFrancMultiplication()
+    {
+        // Arrange
+        $wallet = new Franc(5);
+    
+        // Act & Assert - ケース1
+        $this->assertEquals(new Franc(15), $wallet->times(3));
+    
+        // Act & Assert - ケース2
+        $this->assertEquals(new Franc(20), $wallet->times(4));
+    
+        // イミュータブル性の確認
+        $this->assertEquals(5, $wallet->getAmount());
     }
 }
