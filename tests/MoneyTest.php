@@ -21,4 +21,16 @@ class MoneyTest extends TestCase
         // $wallet->amount は元の 5 のままか、という確認も本来はしたいところ
         // $this->assertEquals(5, $wallet->amount); // → イミュータブル実装ならここもOKになる
     }
+
+    public function testEquality()
+    {
+        // Arrange
+        $wallet1 = new Dollar(5);
+        $wallet2 = new Dollar(5);
+        $wallet3 = new Dollar(6);
+    
+        // Act & Assert
+        $this->assertTrue($wallet1->equals($wallet2));
+        $this->assertFalse($wallet1->equals($wallet3));
+    }
 }

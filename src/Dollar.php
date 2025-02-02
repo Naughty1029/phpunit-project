@@ -20,4 +20,12 @@ class Dollar
   {
     return new Dollar($this->amount * $multipier);
   }
+
+  /**
+   * @param Dollar $dollar
+   */
+  public function equals(Dollar $dollar)
+  {
+    return $this->amount === $dollar->amount;
+  }
 }
