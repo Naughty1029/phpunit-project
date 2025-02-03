@@ -1,10 +1,9 @@
 <?php
 namespace App;
+use App\Money;
 
-class Franc
-{
-  private $amount;
-  
+class Franc extends Money
+{ 
   /**
    * @param int $amount
    */
@@ -27,13 +26,5 @@ class Franc
   public function times(int $multipier)
   {
     return new Franc($this->amount * $multipier);
-  }
-
-  /**
-   * @param Franc $franc
-   */
-  public function equals(Franc $franc)
-  {
-    return $this->amount === $franc->amount;
   }
 }

@@ -1,9 +1,9 @@
 <?php
 namespace App;
+use App\Money;
 
-class Dollar
+class Dollar extends Money
 {
-  private $amount;
   
   /**
    * @param int $amount
@@ -27,13 +27,5 @@ class Dollar
   public function times(int $multipier)
   {
     return new Dollar($this->amount * $multipier);
-  }
-
-  /**
-   * @param Dollar $dollar
-   */
-  public function equals(Dollar $dollar)
-  {
-    return $this->amount === $dollar->amount;
   }
 }

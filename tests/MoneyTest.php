@@ -23,13 +23,18 @@ class MoneyTest extends TestCase
     public function testEquality()
     {
         // Arrange
-        $wallet1 = new Dollar(5);
-        $wallet2 = new Dollar(5);
-        $wallet3 = new Dollar(6);
+        $dollar1 = new Dollar(5);
+        $dollar2 = new Dollar(5);
+        $dollar3 = new Dollar(6);
+        $franc1 = new Franc(5);
+        $franc2 = new Franc(5);
+        $franc3 = new Franc(6);
     
         // Act & Assert
-        $this->assertTrue($wallet1->equals($wallet2));
-        $this->assertFalse($wallet1->equals($wallet3));
+        $this->assertTrue($dollar1->equals($dollar2));
+        $this->assertFalse($dollar1->equals($dollar3));
+        $this->assertTrue($franc1->equals($franc2));
+        $this->assertFalse($franc1->equals($franc3));
     }
 
     public function testFrancMultiplication()
