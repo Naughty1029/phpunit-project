@@ -35,6 +35,9 @@ class MoneyTest extends TestCase
         $this->assertFalse($dollar1->equals($dollar3));
         $this->assertTrue($franc1->equals($franc2));
         $this->assertFalse($franc1->equals($franc3));
+
+        // Act & Assert - 通貨単位が異なる場合
+        $this->assertFalse($dollar1->equals($franc1));
     }
 
     public function testFrancMultiplication()
