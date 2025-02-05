@@ -11,15 +11,7 @@ class Franc extends Money
   {
     $this->amount = $amount;
   }
-
-  /**
-   * @return int
-   */
-  public function getAmount()
-  {
-    return $this->amount;
-  }
-
+  
   /**
    * @param int $multipier
    */

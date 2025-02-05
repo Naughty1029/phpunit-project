@@ -2,19 +2,20 @@
 use PHPUnit\Framework\TestCase;
 use App\Dollar;
 use App\Franc;
+use App\Money;
 
 class MoneyTest extends TestCase
 {
     public function testMultiplication()
     {
         // Arrange
-        $wallet = new Dollar(5);
+        $wallet = Money::dollar(5);
     
         // Act & Assert - ケース1
-        $this->assertEquals(new Dollar(15), $wallet->times(3));
+        $this->assertEquals(Dollar::dollar(15), $wallet->times(3));
     
         // Act & Assert - ケース2
-        $this->assertEquals(new Dollar(20), $wallet->times(4));
+        $this->assertEquals(Dollar::dollar(20), $wallet->times(4));
     
         // イミュータブル性の確認
         $this->assertEquals(5, $wallet->getAmount());
@@ -23,12 +24,12 @@ class MoneyTest extends TestCase
     public function testEquality()
     {
         // Arrange
-        $dollar1 = new Dollar(5);
-        $dollar2 = new Dollar(5);
-        $dollar3 = new Dollar(6);
-        $franc1 = new Franc(5);
-        $franc2 = new Franc(5);
-        $franc3 = new Franc(6);
+        $dollar1 = Dollar::dollar(5);
+        $dollar2 = Dollar::dollar(5);
+        $dollar3 = Dollar::dollar(6);
+        $franc1 = Dollar::franc(5);
+        $franc2 = Dollar::franc(5);
+        $franc3 = Dollar::franc(6);
     
         // Act & Assert
         $this->assertTrue($dollar1->equals($dollar2));
@@ -43,13 +44,13 @@ class MoneyTest extends TestCase
     public function testFrancMultiplication()
     {
         // Arrange
-        $wallet = new Franc(5);
+        $wallet = Dollar::franc(5);
     
         // Act & Assert - ケース1
-        $this->assertEquals(new Franc(15), $wallet->times(3));
+        $this->assertEquals(Dollar::franc(15), $wallet->times(3));
     
         // Act & Assert - ケース2
-        $this->assertEquals(new Franc(20), $wallet->times(4));
+        $this->assertEquals(Dollar::franc(20), $wallet->times(4));
     
         // イミュータブル性の確認
         $this->assertEquals(5, $wallet->getAmount());
